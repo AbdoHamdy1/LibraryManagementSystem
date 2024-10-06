@@ -81,7 +81,9 @@ namespace LMS.Controllers
             var newUser = new AppUser()
             {
                 Email = registerViewModel.EmailAddress,
-                UserName = registerViewModel.EmailAddress,
+                NationalID = registerViewModel.NationalID,
+                Address= registerViewModel.Address,
+                BitrthDate=registerViewModel.BirthDate
             };
 
             var result = await _userManager.CreateAsync(newUser, registerViewModel.Password);

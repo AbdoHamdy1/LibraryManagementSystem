@@ -7,10 +7,10 @@ namespace LMS.Models
     {
         [Key]
         public string NationalID { get; set; }
-        public string Image {  get; set; }
+        public string? Image {  get; set; }
         public string Address { get; set; }
         public DateTime BitrthDate { get; set; }
-        public bool Penalty { get; set; }
+        public bool? Penalty { get; set; }
         public ICollection<BookUser> BookUsers { get; set; }
 
     }
