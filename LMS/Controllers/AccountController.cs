@@ -46,12 +46,12 @@ namespace LMS.Controllers
                     }
                 }
                 //Password Incorrect
-                TempData["Error"] = "Worng , Credentials Try Again !";
+                TempData["Error"] = "Wrong , Credentials Try Again !";
                 return View(loginViewModel);
             }
 
             //Password Incorrect
-            TempData["Error"] = "Worng , Credentials Try Again !";
+            TempData["Error"] = "Wrong , Credentials Try Again !";
             return View(loginViewModel);
         }
 
