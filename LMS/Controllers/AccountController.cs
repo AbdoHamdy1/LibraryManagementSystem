@@ -80,6 +80,7 @@ namespace LMS.Controllers
             }
             var newUser = new AppUser()
             {
+                UserName = registerViewModel.EmailAddress,
                 Email = registerViewModel.EmailAddress,
                 NationalID = registerViewModel.NationalID,
                 Address= registerViewModel.Address,

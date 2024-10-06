@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Win_11\\Desktop\\NewDEPI_Project\\LMS\\LMS\\LMS.csproj": {}
+    "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\LMS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Win_11\\Desktop\\NewDEPI_Project\\LMS\\LMS\\LMS.csproj": {
+    "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\LMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Win_11\\Desktop\\NewDEPI_Project\\LMS\\LMS\\LMS.csproj",
+        "projectUniqueName": "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\LMS.csproj",
         "projectName": "LMS",
-        "projectPath": "C:\\Users\\Win_11\\Desktop\\NewDEPI_Project\\LMS\\LMS\\LMS.csproj",
+        "projectPath": "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\LMS.csproj",
         "packagesPath": "C:\\Users\\Win_11\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Win_11\\Desktop\\NewDEPI_Project\\LMS\\LMS\\obj\\",
+        "outputPath": "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Win_11\\AppData\\Roaming\\NuGet\\NuGet.Config",
