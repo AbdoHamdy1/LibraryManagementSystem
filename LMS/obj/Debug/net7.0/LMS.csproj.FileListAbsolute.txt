@@ -152,3 +152,5 @@ C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\obj\Debug\net7.0\refint\
 C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\obj\Debug\net7.0\LMS.pdb
 C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\obj\Debug\net7.0\LMS.genruntimeconfig.cache
 C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\obj\Debug\net7.0\ref\LMS.dll
+C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\bin\Debug\net7.0\CloudinaryDotNet.dll
+C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\bin\Debug\net7.0\Newtonsoft.Json.dll
