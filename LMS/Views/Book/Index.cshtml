@@ -1,0 +1,55 @@
+﻿@model List<Book>
+
+<section class="space-sm flush-with-above">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+        </div>
+        <ul class="row feature-list feature-list-sm">
+            @foreach (var item in Model)
+            {
+                <li class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        @if (@item.Image != null)
+                        {
+                            <img class="card-img-top img-cover" src="@item.Image" alt="Card image cap">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="/img/rungroopclub.png" alt="Card image cap">
+                        }
+                        <div class="card-body">
+                            <h4 class="card-title">@item.Name</h4>
+                            <p class="card-text">@item.Price</p>
+                            @*<p class="card-text">@club.Address.City, @club.Address.State</p>*@
+                        </div>
+                        <div class="card-footer card-footer-borderless d-flex justify-content-between">
+                            <div>
+                                <small>@item.Genre</small>
+                            </div>
+                            <div>
+                                <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Book" asp-action="Detail" asp-route-id="@item.Id">
+                                    Detail
+                                </a>
+                                <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id">
+                                    Edit
+                                </a>
+                                <a type="button" class="btn btn-sm btn-outline-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">
+                                    Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+        </div>
+    </div>
+</section>
+<style>
+    .img-cover {
+        object-fit: cover;
+        height: 50px; /* Set your desired height */
+        width: 50px%;
+    }
+</style>

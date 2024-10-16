@@ -80,7 +80,9 @@ namespace LMS.Controllers
             }
             var newUser = new AppUser()
             {
-                UserName = registerViewModel.EmailAddress,
+                FirstName=registerViewModel.FirstName,
+                LastName=registerViewModel.LastName,
+                UserName = registerViewModel.FirstName,
                 Email = registerViewModel.EmailAddress,
                 NationalID = registerViewModel.NationalID,
                 Address= registerViewModel.Address,
@@ -91,7 +93,7 @@ namespace LMS.Controllers
 
             if (result.Succeeded)
             {
-               // await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+               await _userManager.AddToRoleAsync(newUser, UserRoles.Admin);
             }
             return RedirectToAction("Index", "Home");
         }

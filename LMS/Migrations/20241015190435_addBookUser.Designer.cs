@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241006184036_se")]
-    partial class se
+    [Migration("20241015190435_addBookUser")]
+    partial class addBookUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -199,7 +199,7 @@ namespace LMS.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("BookUser");
+                    b.ToTable("bookUsers");
                 });
 
             modelBuilder.Entity("LMS.Models.Publisher", b =>

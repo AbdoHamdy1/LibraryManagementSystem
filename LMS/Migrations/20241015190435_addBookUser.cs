@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LMS.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class addBookUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,10 +31,10 @@ namespace LMS.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     NationalID = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BitrthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Penalty = table.Column<bool>(type: "bit", nullable: false),
+                    Penalty = table.Column<bool>(type: "bit", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -221,7 +221,7 @@ namespace LMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookUser",
+                name: "bookUsers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -229,20 +229,20 @@ namespace LMS.Migrations
                     ReserveDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AppUserId = table.Column<int>(type: "int", nullable: false),
-                    AppUserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     BookId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookUser", x => x.Id);
+                    table.PrimaryKey("PK_bookUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BookUser_AspNetUsers_AppUserId1",
-                        column: x => x.AppUserId1,
+                        name: "FK_bookUsers_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookUser_Books_BookId",
+                        name: "FK_bookUsers_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
@@ -299,13 +299,13 @@ namespace LMS.Migrations
                 column: "PublisherId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookUser_AppUserId1",
-                table: "BookUser",
-                column: "AppUserId1");
+                name: "IX_bookUsers_AppUserId",
+                table: "bookUsers",
+                column: "AppUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookUser_BookId",
-                table: "BookUser",
+                name: "IX_bookUsers_BookId",
+                table: "bookUsers",
                 column: "BookId");
         }
 
@@ -328,7 +328,7 @@ namespace LMS.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "BookUser");
+                name: "bookUsers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

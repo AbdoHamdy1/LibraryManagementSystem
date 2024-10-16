@@ -17,5 +17,6 @@ namespace LMS.Data
         public DbSet<Book> Books { get; set; }
         public DbSet< Author> Authors{ get; set; }
         public DbSet<Publisher> publishers { get; set; }
+        public DbSet<BookUser> bookUsers { get; set; }
     }
 }

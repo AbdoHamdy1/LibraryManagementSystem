@@ -13,5 +13,7 @@ namespace LMS.IRepository
         bool Update(Book book);
         bool Delete(Book book);
         bool Save();
+        Task<Book?> GetByIdAsyncNoTracking(int id);
+
     }
 }

@@ -48,7 +48,15 @@ namespace LMS.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -196,7 +204,7 @@ namespace LMS.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("BookUser");
+                    b.ToTable("bookUsers");
                 });
 
             modelBuilder.Entity("LMS.Models.Publisher", b =>

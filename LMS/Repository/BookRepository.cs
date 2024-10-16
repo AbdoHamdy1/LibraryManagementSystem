@@ -49,5 +49,9 @@ namespace LMS.Repository
             return await _context.Books.Include(b => b.Author).Include(b => b.Publisher).FirstOrDefaultAsync(b=>b.Id==id);
 
         }
+        public async Task<Book?> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.Books.Include(b => b.Author).Include(b => b.Publisher).AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+        }
     }
 }

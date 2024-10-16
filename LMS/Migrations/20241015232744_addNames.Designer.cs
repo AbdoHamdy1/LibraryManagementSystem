@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241006182311_add")]
-    partial class add
+    [Migration("20241015232744_addNames")]
+    partial class addNames
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,15 @@ namespace LMS.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -199,7 +207,7 @@ namespace LMS.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("BookUser");
+                    b.ToTable("bookUsers");
                 });
 
             modelBuilder.Entity("LMS.Models.Publisher", b =>
