@@ -46,12 +46,12 @@ namespace LMS.Controllers
                     }
                 }
                 //Password Incorrect
-                TempData["Error"] = "Wrong , Credentials Try Again !";
+                TempData["Error"] = "Invalid Password Try again!";
                 return View(loginViewModel);
             }
 
             //Password Incorrect
-            TempData["Error"] = "Wrong , Credentials Try Again !";
+            TempData["Error"] = "Invalid Email";
             return View(loginViewModel);
         }
 
@@ -93,9 +93,16 @@ namespace LMS.Controllers
 
             if (result.Succeeded)
             {
-               await _userManager.AddToRoleAsync(newUser, UserRoles.Admin);
+               await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+                return RedirectToAction("Index", "Home");
             }
-            return RedirectToAction("Index", "Home");
+
+            else
+            {
+               
+                return View(registerViewModel);
+            }
         }
+
     }
 }

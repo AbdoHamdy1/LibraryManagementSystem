@@ -1,74 +1,109 @@
 ﻿@using LMS.ViewModel;
 @model RegisterViewModel
-
 @{
-    ViewData["Title"] = "Sign up";
+    ViewData["Title"] = "Register";
+    Layout = "";
 }
-@* dsfadf *@
-<div class="row">
-    <div class="col-md-6 offset-3">
-        <p>
-            <h4>Sign up for a new account</h4>
-        </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Register</title>
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+<body>
 
-        @if (TempData["Error"] != null)
-        {
-            <div class="col-md-12 alert alert-danger">
-                <span><b>Sorry!</b> - @TempData["Error"] </span>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Sign Up</h1>
+            <div class="icon">
+                <span>A</span> <!-- Placeholder for a logo -->
             </div>
-        }
 
-        <div class="row">
-            <div class="col-md-8 offset-2">
-                <form asp-action="Register">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="FirstName" class="control-label"></label>
-                        <input asp-for="FirstName" class="form-control" />
-                        <span asp-validation-for="FirstName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="LastName" class="control-label"></label>
-                        <input asp-for="LastName" class="form-control" />
-                        <span asp-validation-for="LastName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="EmailAddress" class="control-label"></label>
-                        <input asp-for="EmailAddress" class="form-control" />
-                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="NationalID" class="control-label"></label>
-                        <input asp-for="NationalID" class="form-control" />
-                        <span asp-validation-for="NationalID" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Password" class="control-label"></label>
-                        <input asp-for="Password" class="form-control" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="ConfirmPassword" class="control-label"></label>
-                        <input asp-for="ConfirmPassword" class="form-control" />
-                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="BirthDate" class="control-label"></label>
-                        <input asp-for="BirthDate" class="form-control" />
-                        <span asp-validation-for="BirthDate" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Address" class="control-label"></label>
-                        <input asp-for="Address" class="form-control" />
-                        <span asp-validation-for="Address" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input class="btn btn-outline-success float-right" type="submit" value="Sign up" />
-                        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index">Cancel</a>
-                    </div>
+            @* Displaying any TempData error messages *@
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger">
+                    <span><b>Sorry!</b> - @TempData["Error"]</span>
+                </div>
+            }
 
-                </form>
-            </div>
+            <form asp-action="Register" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- First Name Field -->
+                <div class="input-group">
+                    <input asp-for="FirstName" class="form-control" placeholder="First Name" required />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <!-- Last Name Field -->
+                <div class="input-group">
+                    <input asp-for="LastName" class="form-control" placeholder="Last Name" required />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="input-group">
+                    <input asp-for="EmailAddress" class="form-control" placeholder="Email" type="email" required />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+
+                <!-- National ID Field -->
+                <div class="input-group">
+                    <input asp-for="NationalID" class="form-control" placeholder="National ID" required />
+                    <span asp-validation-for="NationalID" class="text-danger"></span>
+                </div>
+
+                <!-- Password Field -->
+                <div class="input-group">
+                    <input asp-for="Password" id="password-field" class="form-control" placeholder="Password" type="password" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <span class="show-password" onclick="togglePassword('password-field')">&#128065;</span>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="input-group">
+                    <input asp-for="ConfirmPassword" id="confirm-password-field" class="form-control" placeholder="Confirm Password" type="password" required />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    <span class="show-password" onclick="togglePassword('confirm-password-field')">&#128065;</span>
+                </div>
+
+                <!-- Birthdate Field -->
+                <div class="input-group">
+                    <input asp-for="BirthDate" class="form-control" placeholder="Birth Date" type="date" required />
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+
+                <!-- Address Field -->
+                <div class="input-group">
+                    <input asp-for="Address" class="form-control" placeholder="Address" required />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="login-btn">Sign Up</button>
+            </form>
+
+            <p class="signup-text">Already have an account? <a href="@Url.Action("Login", "Account")">Login</a></p>
         </div>
     </div>
-</div>
+
+    <script>
+        <partial name="_ValidationScriptsPartial" />
+        // Function to toggle password visibility
+        function togglePassword(fieldId) {
+            var passwordField = document.getElementById(fieldId);
+            var passwordFieldType = passwordField.getAttribute("type");
+
+            if (passwordFieldType === "password") {
+                passwordField.setAttribute("type", "text");
+            } else {
+                passwordField.setAttribute("type", "password");
+            }
+        }
+    </script>
+
+</body>
+</html>

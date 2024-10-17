@@ -7,9 +7,10 @@ namespace LMS.ViewModel
     {
         public string Name { get; set; }
         public IFormFile Image { get; set; }
-        public DateTime PublishDate { get; set; }
+        public int PublishDate { get; set; }
         public int Price { get; set; }
         public bool Status { get; set; } = true;
+        public int Quantity { get; set; }
         public BookGenre Genre { get; set; }
         public BookLanguage Language { get; set; }
 

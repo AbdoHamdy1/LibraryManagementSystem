@@ -2,6 +2,7 @@
 @using LMS.ViewModel;
 
 @model CreateBookViewModel
+
 <form method="post" asp-action="Create" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="Name" for="Name">Title</label>
@@ -13,6 +14,11 @@
         <label asp-for="Price" for="Price">Price</label>
         <input asp-for="Price" class="form-control" id="Price" placeholder="Price">
         <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quantity" for="Quantity">Quantity</label>
+        <input asp-for="Quantity" class="form-control" id="Quantity" placeholder="Quantity">
+        <span asp-validation-for="Quantity" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -32,7 +38,7 @@
     </div>
     <div class="form-group">
         <label asp-for="PublishDate" for="PublishDate">Publish Date</label>
-        <input asp-for="PublishDate" class="form-control" id="PublishDate" placeholder="PublishDate">
+        <input asp-for="PublishDate" type="number" class="form-control" placeholder="Year" min="1900" max="2100">
         <span asp-validation-for="PublishDate" class="text-danger"></span>
     </div>
 

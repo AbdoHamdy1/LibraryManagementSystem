@@ -143,7 +143,6 @@ namespace LMS.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Language")
@@ -156,10 +155,13 @@ namespace LMS.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("PublishDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("PublishDate")
+                        .HasColumnType("int");
 
                     b.Property<int>("PublisherId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<bool>("Status")
@@ -195,7 +197,7 @@ namespace LMS.Migrations
                     b.Property<DateTime>("ReserveDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ReturnDate")
+                    b.Property<DateTime?>("ReturnDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

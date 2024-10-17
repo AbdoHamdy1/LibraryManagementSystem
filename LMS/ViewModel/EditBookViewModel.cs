@@ -8,8 +8,9 @@ namespace LMS.ViewModel
         public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
-        public DateTime PublishDate { get; set; }
+        public int PublishDate { get; set; }
         public bool Status { get; set; }
+        public int Quantity { get; set; }
         public IFormFile Image { get; set; }
         public string? URL { get; set; }
         public BookGenre bookGenre { get; set; }

@@ -19,7 +19,9 @@
                         }
                         <div class="card-body">
                             <h4 class="card-title">@item.Name</h4>
+                            <p class="card-text">@item.Quantity</p>
                             <p class="card-text">@item.Price</p>
+
                             @*<p class="card-text">@club.Address.City, @club.Address.State</p>*@
                         </div>
                         <div class="card-footer card-footer-borderless d-flex justify-content-between">
@@ -27,15 +29,22 @@
                                 <small>@item.Genre</small>
                             </div>
                             <div>
+                               
+                                <form method="post" asp-controller="Book" asp-action="Borrow" asp-route-id="@item.Id" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-outline-info">Borrow</button>
+                                </form>
                                 <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Book" asp-action="Detail" asp-route-id="@item.Id">
                                     Detail
                                 </a>
-                                <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id">
-                                    Edit
-                                </a>
-                                <a type="button" class="btn btn-sm btn-outline-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">
-                                    Delete
-                                </a>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                                {
+                                    <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id">
+                                        Edit
+                                    </a>
+                                    <a type="button" class="btn btn-sm btn-outline-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id">
+                                        Delete
+                                    </a>
+                                }
                             </div>
                         </div>
                     </div>

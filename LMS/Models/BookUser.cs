@@ -8,7 +8,8 @@ namespace LMS.Models
         public int Id { get; set; }
         public DateTime ReserveDate { get; set; }
         public DateTime DueDate { get; set; }
-        public DateTime ReturnDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd MMMM}")]
+        public DateTime? ReturnDate { get; set; }
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
         public int BookId { get; set; }

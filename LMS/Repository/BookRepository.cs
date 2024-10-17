@@ -53,5 +53,10 @@ namespace LMS.Repository
         {
             return await _context.Books.Include(b => b.Author).Include(b => b.Publisher).AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
         }
+        public bool AddBookUser(BookUser bookuser)
+        {
+            _context.bookUsers.Add(bookuser);
+            return Save();
+        }
     }
 }
