@@ -16,6 +16,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IBookRepository,BookRepository>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.AddScoped<IUserDashboardRepository, UserDashboardRepository>();
+builder.Services.AddScoped<IBookUserRepository, BookUserRepository>();
+
 
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

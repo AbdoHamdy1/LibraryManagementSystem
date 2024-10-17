@@ -7,6 +7,7 @@ namespace LMS.Models
         [Key]
         public int Id { get; set; }
         public DateTime ReserveDate { get; set; }
+
         public DateTime DueDate { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd MMMM}")]
         public DateTime? ReturnDate { get; set; }

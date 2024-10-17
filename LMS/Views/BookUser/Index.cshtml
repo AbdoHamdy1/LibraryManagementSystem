@@ -1,0 +1,72 @@
+﻿@using LMS.ViewModel;
+@model List<BookUserViewModel>
+<section class="flush-with-above">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="table table-hover align-items-center table-borderless">
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr class="bg-white">
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        @*<img alt="Image profile avatar" class="profile avatar" src="@user.ProfileImage">*@
+                                        <div class="media-body">
+                                            <span class="h6 mb-0">@user.BookName</span>
+                                        </div>
+                                    </div>
+                                </th>
+
+                                <td>
+                                    @*<a class="btn btn-sm btn-outline-info" asp-controller="User" asp-action="Detail" asp-route-id="@user.Id">Details</a>*@
+                                    <div class="media-body">
+                                        <span class="h6 mb-0">@user.NationalID</span>
+                                    </div>
+
+                                </td>
+                                
+                                    <td>
+                                    <div class="media-body">
+                                        <span class="h6 mb-0">@user.ReserveDate</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="h6 mb-0">@user.DueDate</span>
+                                    </div>
+                                    </td>
+                                
+
+                               @*
+                            @{
+                            var mileage = user.Mileage == null ? "?" : user.Mileage.ToString();
+                            var pace = user.Pace == null ? "?" : user.Pace.ToString();
+                            }
+                               *@ 
+                                <td>
+                                    <form method="post" asp-controller="BookUser" asp-action="Return" asp-route-id="@user.Id" style="display:inline;">
+                                        <button type="submit" class="btn btn-sm btn-outline-info">Return</button>
+                                    </form>
+                                </td>
+                                @*                                <td><i class="icon-location"></i> @user.Location</td>
+                            *@
+                            </tr>
+                            <tr class="table-divider">
+                                <th></th>
+                                <td></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!--end of col-->
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+<style>
+    .profile {
+        width: 100px;
+        height: 100px;
+    }
+</style>

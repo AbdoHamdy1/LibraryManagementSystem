@@ -75,7 +75,6 @@ C:\Users\Win_11\Desktop\NewDEPI_Project\LMS\LMS\obj\Debug\net7.0\LMS.pdb
 C:\Users\Win_11\Desktop\NewDEPI_Project\LMS\LMS\obj\Debug\net7.0\LMS.genruntimeconfig.cache
 C:\Users\Win_11\Desktop\NewDEPI_Project\LMS\LMS\obj\Debug\net7.0\ref\LMS.dll
 C:\Users\Win_11\Desktop\NewDEPI_Project\LMS\LMS\obj\Debug\net7.0\LMS.sourcelink.json
-C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\bin\Debug\net7.0\appsettings.json
 C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\bin\Debug\net7.0\LMS.staticwebassets.runtime.json
 C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\bin\Debug\net7.0\LMS.exe

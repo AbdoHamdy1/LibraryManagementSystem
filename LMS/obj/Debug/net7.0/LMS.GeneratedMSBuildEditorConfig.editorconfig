@@ -9,71 +9,75 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LMS
 build_property.RootNamespace = LMS
-build_property.ProjectDir = D:\gittt\LibraryManagementSystem\LMS\
+build_property.ProjectDir = C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\gittt\LibraryManagementSystem\LMS
+build_property.MSBuildProjectDirectory = C:\Users\Win_11\Desktop\git\LibraryManagementSystem\LMS
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Account/Login.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Account/Register.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Book/Create.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/BookUser/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1VzZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Book/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Book/Detail.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Book/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Book/Edit.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Book/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Book/Index.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Book/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Home/Index.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Home/Privacy.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Shared/Error.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/UserDashboard/EditUser.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/UserDashboard/EditUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRhc2hib2FyZFxFZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/UserDashboard/Index.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/UserDashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRhc2hib2FyZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/_ViewImports.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/_ViewStart.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/gittt/LibraryManagementSystem/LMS/Views/Shared/_Layout.cshtml]
+[C:/Users/Win_11/Desktop/git/LibraryManagementSystem/LMS/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-oaye5qotgs

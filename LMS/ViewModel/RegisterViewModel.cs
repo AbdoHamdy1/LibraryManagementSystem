@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using LMS.Validation;
 namespace LMS.ViewModel
 {
     public class RegisterViewModel
@@ -16,6 +16,7 @@ namespace LMS.ViewModel
         [Required(ErrorMessage = "Email address is required")]
         public string EmailAddress { get; set; }
 
+        [RegularExpression(@"^\d{14}$", ErrorMessage = "National ID must be 14 digits")]
         [Display(Name = "Enter NationalID")]
         [Required(ErrorMessage = "NationalID is required")]
         [DataType(DataType.Password)]
@@ -37,6 +38,7 @@ namespace LMS.ViewModel
         [Required(ErrorMessage = "Cofirm BirthDate is required")]
         [DataType(DataType.DateTime)]
         [Compare("BirthDate", ErrorMessage = "BirthDate is required ")]
+        [MinimumAge(16, ErrorMessage = "You must be at least 16 years old.")]
         public DateTime BirthDate { get; set; }
 
         [Display(Name = "Confirm Address")]

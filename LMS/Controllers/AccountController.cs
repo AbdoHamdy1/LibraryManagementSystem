@@ -69,8 +69,6 @@ namespace LMS.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
-            if (!ModelState.IsValid) return View(registerViewModel);
-
             var user = await _userManager.FindByEmailAsync(registerViewModel.EmailAddress);
             //already user exist with the same email
             if (user != null)
@@ -78,6 +76,9 @@ namespace LMS.Controllers
                 TempData["Error"] = "This Email Address Already Exist";
                 return View(registerViewModel);
             }
+
+            if (!ModelState.IsValid) return View(registerViewModel);
+
             var newUser = new AppUser()
             {
                 FirstName=registerViewModel.FirstName,

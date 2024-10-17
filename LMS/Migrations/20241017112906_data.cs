@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LMS.Migrations
 {
     /// <inheritdoc />
-    public partial class Quantity : Migration
+    public partial class data : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -231,7 +231,7 @@ namespace LMS.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ReserveDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     BookId = table.Column<int>(type: "int", nullable: false)
                 },

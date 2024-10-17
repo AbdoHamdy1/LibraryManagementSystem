@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241016134919_Quantity")]
-    partial class Quantity
+    [Migration("20241017112906_data")]
+    partial class data
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -200,7 +200,7 @@ namespace LMS.Migrations
                     b.Property<DateTime>("ReserveDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ReturnDate")
+                    b.Property<DateTime?>("ReturnDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

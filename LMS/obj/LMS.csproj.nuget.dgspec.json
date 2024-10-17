@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\gittt\\LibraryManagementSystem\\LMS\\LMS.csproj": {}
+    "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\LMS.csproj": {}
   },
   "projects": {
-    "D:\\gittt\\LibraryManagementSystem\\LMS\\LMS.csproj": {
+    "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\LMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\gittt\\LibraryManagementSystem\\LMS\\LMS.csproj",
+        "projectUniqueName": "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\LMS.csproj",
         "projectName": "LMS",
-        "projectPath": "D:\\gittt\\LibraryManagementSystem\\LMS\\LMS.csproj",
-        "packagesPath": "C:\\Users\\moha1\\.nuget\\packages\\",
-        "outputPath": "D:\\gittt\\LibraryManagementSystem\\LMS\\obj\\",
+        "projectPath": "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\LMS.csproj",
+        "packagesPath": "C:\\Users\\Win_11\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Win_11\\Desktop\\git\\LibraryManagementSystem\\LMS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\moha1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Win_11\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
