@@ -1,0 +1,72 @@
+﻿.container {
+    margin-top: 20px;
+}
+
+.filter-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+    .filter-section h3 {
+        font-weight: bold;
+    }
+
+.price-slider {
+    width: 100%;
+}
+
+.price-values {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.filter-btn {
+    margin-top: 10px;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-item {
+    margin-bottom: 20px;
+}
+
+    .book-item .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+
+        .book-item .card:hover {
+            transform: scale(1.05);
+        }
+
+        .book-item .card img {
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 2px solid #eee;
+        }
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.btn-outline-secondary {
+    background-color: #f05454;
+    color: white;
+    border: none;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: #d43f3f;
+    }

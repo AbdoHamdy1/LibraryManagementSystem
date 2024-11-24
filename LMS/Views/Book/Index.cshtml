@@ -1,0 +1,152 @@
+﻿@using LMS.Data
+@using LMS.ViewModel
+@using System.Security.Claims
+@model BookIndexViewModel
+
+@{
+    ViewData["Title"] = "Book List";
+    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+}
+<partial name="_Notification" />
+<link rel="stylesheet" href="~/css/Index.css">
+
+<div class="container">
+    <h1>New Releases</h1>
+
+    <div class="row">
+        <div class="col-md-3">
+            <form asp-action="Index" method="get">
+                <div class="filter-section">
+                    <div class="form-group">
+                        <label for="priceRange">FILTER BY PRICE</label>
+                        <div class="d-flex justify-content-between">
+                            <input type="number" name="minPrice" min="0" max="1000" value="@Model.MinPrice " class="form-control me-2" placeholder="Min Price">
+                            <input type="number" name="maxPrice" min="0" max="1000" value="@Model.MaxPrice" class="form-control" placeholder="Max Price">
+                        </div>
+                        <div class="price-values mt-2">
+                            <span>Price: @Model.MinPrice  0 EGP To @Model.MaxPrice  1000 EGP</span>
+                        </div>
+                        <button class="btn btn-outline-secondary filter-btn mt-2" type="submit">Filter</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="authorFilter">FILTER BY AUTHOR NAME</label>
+                        <select name="authorId" class="form-control">
+                            <option value="">Any Author</option>
+                            @foreach (var author in Model.Authors)
+                            {
+                                <option value="@author.id">@author.name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publisherFilter">FILTER BY PUBLISHER</label>
+                        <select name="publisherId" class="form-control">
+                            <option value="">Any Publisher</option>
+                            @foreach (var publisher in Model.Publishers)
+                            {
+                                <option value="@publisher.Id">@publisher.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genreFilter">FILTER BY GENRE</label>
+                        <select name="genre" class="form-control">
+                            <option value="">Any Genre</option>
+                            @foreach (BookGenre genre in Enum.GetValues(typeof(BookGenre)))
+                            {
+                                <option value="@genre">@genre.ToString()</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="languageFilter">FILTER BY LANGUAGE</label>
+                        <select name="language" class="form-control">
+                            <option value="">Any Language</option>
+                            @foreach (BookLanguage language in Enum.GetValues(typeof(BookLanguage)))
+                            {
+                                <option value="@language">@language.ToString()</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="text" name="search" class="form-control" value="" placeholder="Search for books, authors or publishers">
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-9">
+            <div class="book-list row">
+                @foreach (var book in Model.Books)
+                {
+                    <div class="col-md-4 book-item mb-4">
+                        <div class="card h-100">
+                            <img src="@book.Image" class="card-img-top img-cover" alt="@book.Name">
+                            <div class="card-body">
+                                <h5 class="card-title">@book.Name</h5>
+                                <p class="card-text">By @book.Author.name</p>
+                                <p class="card-text">Published by @book.Publisher.Name</p>
+                                <p class="card-text">Price: @book.Price EGP</p>
+                                <p class="card-text">Genre: @book.Genre</p>
+                                <p class="card-text">Quantity: @book.Quantity</p>
+                            </div>
+
+                            <div class="card-footer d-flex flex-row">
+                                @if (User.Identity.IsAuthenticated && !User.IsInRole("admin")&&book.Quantity>0)
+                                {
+                                    <form method="post" asp-controller="Book" asp-action="Borrow" asp-route-id="@book.Id" style="display:inline;">
+                                        <button type="submit" class="btn btn-sm btn-outline-info">Borrow</button>
+                                    </form>
+                                  
+                                }
+
+                                <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                                    Detail
+                                </a>
+
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                                {
+                                    <a type="button" class="btn btn-sm btn-outline-info" asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id">
+                                        Edit
+                                    </a>
+                                }
+
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                                {
+                                    <a type="button" class="btn btn-sm btn-outline-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">
+                                        Delete
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .filter-section {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .book-item {
+        margin-bottom: 30px;
+    }
+
+    .price-values {
+        margin-top: 10px;
+    }
+</style>

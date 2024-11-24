@@ -1,0 +1,35 @@
+﻿@using LMS.Data;
+@using LMS.ViewModel;
+
+@model EditUserViewModel
+<form method="post" asp-controller="UserDashboard" asp-action="EditUserProfile" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="FirstName" for="Name">First Name</label>
+        <input asp-for="FirstName" class="form-control" id="FirstNAme" placeholder="First Name" required>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName" for="Name">Last Name</label>
+        <input asp-for="LastName" class="form-control" id="LastName" placeholder="Last Name" required>
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NationalID" for="NationalID">National ID</label>
+        <input asp-for="NationalID" class="form-control" placeholder="National ID" required />
+        <span asp-validation-for="NationalID" class="text-danger red"></span>
+    </div>
+   
+    <div class="form-group">
+        <label asp-for="Address" for="Address">Address</label>
+
+        <input asp-for="Address" class="form-control" placeholder="Address" required />
+        <span asp-validation-for="Address" class="text-danger red"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" for="Image">Image</label>
+        <input asp-for="Image" type="file" class="form-control" id="Image" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

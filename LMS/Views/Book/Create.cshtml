@@ -1,0 +1,65 @@
+﻿@using LMS.Data;
+@using LMS.ViewModel;
+
+@model CreateBookViewModel
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name" for="Name">Title</label>
+        <input asp-for="Name" class="form-control" id="Name" placeholder="Title">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" for="Price">Price</label>
+        <input asp-for="Price" class="form-control" id="Price" placeholder="Price">
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quantity" for="Quantity">Quantity</label>
+        <input asp-for="Quantity" class="form-control" id="Quantity" placeholder="Quantity">
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Genre" for="Genre">Genre</label>
+        <select asp-for="Genre" asp-items="@Html.GetEnumSelectList<BookGenre>()" class="form-control">
+            <option>--Select--</option>
+        </select>
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+   
+    <div class="form-group">
+        <label asp-for="Language" for="Language">Language</label>
+        <select asp-for="Language" asp-items="@Html.GetEnumSelectList<BookLanguage>()" class="form-control">
+            <option>--Select--</option>
+        </select>
+        <span asp-validation-for="Language" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PublishDate" for="PublishDate">Publish Date</label>
+        <input asp-for="PublishDate" type="number" class="form-control" placeholder="Year" min="1900" max=@DateTime.Now.Year>
+        <span asp-validation-for="PublishDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Publisher.Name" for="Publisher.Name">Publisher</label>
+        <input asp-for="Publisher.Name" class="form-control" id="Publisher.Name" placeholder="Publisher">
+        <span asp-validation-for="Publisher.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Author.name" for="Author.name">Author</label>
+        <input asp-for="Author.name" class="form-control" id="Author.Name" placeholder="Author">
+        <span asp-validation-for="Author.name" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Image" for="Image">Image</label>
+        <input asp-for="Image" type="file" class="form-control" id="Image" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

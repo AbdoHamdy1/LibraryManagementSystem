@@ -1,0 +1,158 @@
+﻿@using LMS.ViewModel
+@model DetailsViewModel
+@{
+    ViewData["Title"] = "Book Details - " + @Model.book.Name;
+}
+
+<div class="container my-5">
+
+    <div class="row mb-4">
+
+        <div class="col-md-5 text-center">
+            <h1 class="display-4 text-primary">@Model.book.Name</h1>
+            <p class="lead text-muted">By <strong>@Model.book.Author.name</strong></p>
+            <img class="img-fluid rounded shadow-lg border mt-3" src="@Model.book.Image" alt="Book cover for @Model.book.Name">
+        </div>
+
+        <div class="col-md-7">
+            <div class="card shadow-sm p-4 mb-4">
+                <h2 class="text-secondary">Book Details</h2>
+                <ul class="list-group list-group-flush mb-4">
+                    <li class="list-group-item"><strong>Author:</strong> @Model.book.Author.name </li>
+                    <li class="list-group-item"><strong>Price:</strong> @Model.book.Price EGP</li>
+                    <li class="list-group-item"><strong>Genre:</strong> @Model.book.Genre</li>
+                    <li class="list-group-item"><strong>Language:</strong> @Model.book.Language</li>
+                    <li class="list-group-item"><strong>Publisher:</strong> @Model.book.Publisher.Name</li>
+                    <li class="list-group-item"><strong>Published Date:</strong> @Model.book.PublishDate</li>
+                    <li class="list-group-item"><strong>Available Copies:</strong> @Model.book.Quantity</li>
+                </ul>
+
+                <h2 class="text-secondary">Description</h2>
+                <p class="mb-4">A compelling story that engages readers from start to finish. Full of surprises and unforgettable characters.</p>
+
+                <div class="mt-4">
+                    @if (User.Identity.IsAuthenticated && !User.IsInRole("admin") && Model.book.Quantity > 0)
+                    {
+                        <form method="post" asp-controller="Book" asp-action="Borrow" asp-route-id="@Model.book.Id">
+                            <button type="submit" class="btn btn-success btn-lg">Borrow This Book</button>
+                        </form>
+                    }
+                    else if (Model.book.Quantity == 0)
+                    {
+                        <button class="btn btn-secondary btn-lg" disabled>Out of Stock</button>
+                    }
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <a class="btn btn-warning btn-lg" asp-controller="Book" asp-action="Edit" asp-route-id="@Model.book.Id">Edit Book</a>
+                        <a class="btn btn-danger btn-lg" asp-controller="Book" asp-action="Delete" asp-route-id="@Model.book.Id">Delete Book</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h3 class="text-secondary">Reader Reviews</h3>
+            <hr>
+            <div class="review my-4 shadow-sm p-3">
+                <strong>Jane Doe</strong> <small class="text-muted">- 3 days ago</small>
+                <p>This book was amazing! The storyline kept me hooked until the last page.</p>
+                <span class="badge bg-primary">5/5 Stars</span>
+            </div>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <h4 class="mt-4">Add Your Review</h4>
+                <form asp-controller="Book" asp-action="AddReview" method="post" class="mb-4">
+                    <input type="hidden" name="BookId" value="@Model.book.Id" />
+                    <div class="form-group">
+                        <textarea name="ReviewText" class="form-control" placeholder="Write your review here..." rows="3"></textarea>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label>Rating:</label>
+                        <select name="Rating" class="form-control w-25">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <option value="@i">@i Stars</option>
+                            }
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary mt-3">Submit Review</button>
+                </form>
+            }
+            else
+            {
+                <p><a href="/Account/Login">Log in</a> to add your review.</p>
+            }
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h3 class="text-secondary">Related Books</h3>
+            <hr>
+        </div>
+        @foreach (var relatedBook in Model.AuthorBooks)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img class="card-img-top" src="@relatedBook.Image" alt="@relatedBook.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@relatedBook.Name</h5>
+                        <p class="card-text text-muted">By @relatedBook.Author.name</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="@Url.Action("Detail", "Book", new { id = relatedBook.Id })" class="btn btn-sm btn-outline-info">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<style>
+    .img-fluid {
+        max-height: 450px;
+        object-fit: cover;
+    }
+
+    .list-group-item {
+        border: none;
+        font-size: 1.1rem;
+    }
+
+    .card-footer {
+        background-color: transparent;
+        border-top: none;
+    }
+    .card-footer {
+        background-color: transparent;
+        border-top: none;
+    }
+
+    .review {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+        transition: transform 0.3s ease;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    .shadow-lg {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-lg {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+    }
+</style>

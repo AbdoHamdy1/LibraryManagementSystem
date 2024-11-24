@@ -1,0 +1,154 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using LMS.ViewModel
+@model UserDashboardViewModel
+
+<partial name="_Notification" />
+
+<div class="mb-4">
+    <div class="row align-items-center">
+        <div class="col-md-1">
+            @if (string.IsNullOrEmpty(Model.Image))
+            {
+                <img class="avatar" src="https://th.bing.com/th/id/OIP.Pdl4XwubKnUK09v5u-IVOwHaHa?rs=1&pid=ImgDetMain" alt="User Image">
+            }
+            else
+            {
+                <img class="avatar" src="@Model.Image" alt="User Image">
+            }
+        </div>
+        <div class="col-md-8">
+            <h3>@Model.firstname @Model.lastname</h3>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-primary" asp-area="" asp-controller="UserDashboard" asp-action="EditUserProfile" asp-route-id="@Model.Id">Edit Profile</a>
+        </div>
+    </div>
+</div>
+
+<!-- Books List Table -->
+<section class="flush-with-above">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="table table-hover align-items-center table-borderless table-bordered thick-border">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Book Image</th>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Genre</th>
+                            <th>Language</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Books.Count; i++)
+                        {
+                            var item = Model.Books[i];
+                            <tr class="table-row">
+                                <td>
+                                    <span class="order-id">#@(i + 1)</span> 
+                                </td>
+                                <td>
+                                    <div class="media align-items-center">
+                                        <img class="rectangular-image" src="@item.Book.Image" alt="Book Image">
+                                    </div>
+                                </td>
+                                <td><span>@item.Book.Name</span></td>
+                                <td><span>@item.Book.Author.name</span></td>
+                                <td><span>@item.Book.Genre</span></td>
+                                <td><span>@item.Book.Language</span></td>
+                                <td>
+                                    <a class="btn btn-outline-primary btn-sm" asp-controller="Book" asp-action="Detail" asp-route-id="@item.Book.Id">View</a>
+                                </td>
+                            </tr>
+                            <tr class="table-divider">
+                            </tr>
+                        }
+                        @if (!Model.Books.Any())
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center">No books found in your collection.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .table thead th {
+        border-bottom: 2px solid #ddd;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .table-divider {
+        height: 10px;
+        background-color: #f0f0f0;
+    }
+
+    .table-row {
+        background-color: white;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .table th, .table td {
+        padding: 12px 15px;
+        vertical-align: middle;
+    }
+
+    .order-id {
+        font-weight: bold;
+        color: #6c757d;
+    }
+
+    .media {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .rounded-circle {
+        object-fit: cover;
+        width: 80px;
+        height: 80px;
+    }
+
+    .rectangular-image {
+        width: 80px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+</style>

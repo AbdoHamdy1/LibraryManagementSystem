@@ -1,0 +1,62 @@
+﻿@using LMS.ViewModel;
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "";
+}
+<partial name="_Notification" />
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Welcome</h1>
+            <div class="icon">
+                <span>📖</span>
+            </div>
+           
+            <form asp-action="Login" method="post">
+                <div class="input-group">
+                    <input asp-for="EmailAddress" type="email" placeholder="EmailAddress" required>
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="input-group">
+                    <input asp-for="Password" id="password-field" type="password" placeholder="Password" required>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <span class="show-password" onclick="togglePassword()">&#128065;</span> 
+                </div>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger red" role="alert">
+                        <span>@TempData["Error"]</span>
+                    </div>
+                }
+                <button type="submit" class="login-btn">LOGIN</button>
+            </form>
+            <p class="signup-text">Don't have an account? <a href="@Url.Action("Register", "Account")">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+=        function togglePassword() {
+            var passwordField = document.getElementById("password-field");
+            var passwordFieldType = passwordField.getAttribute("type");
+            
+            if (passwordFieldType === "password") {
+                passwordField.setAttribute("type", "text");
+            } else {
+                passwordField.setAttribute("type", "password");
+            }
+        }
+    </script>
+
+</body>
+</html>

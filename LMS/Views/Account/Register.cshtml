@@ -1,0 +1,100 @@
+﻿@using LMS.ViewModel;
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "";
+}
+<partial name="_Notification" />
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Register</title>
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Sign Up</h1>
+            <div class="icon">
+                <span>📖</span>
+            </div>
+            
+
+            <form asp-action="Register" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger red"></div>
+
+                <div class="input-group">
+                    <input asp-for="FirstName" class="form-control" placeholder="First Name" required />
+                    <span asp-validation-for="FirstName" class="text-danger red"></span>
+                </div>
+
+                <div class="input-group">
+                    <input asp-for="LastName" class="form-control" placeholder="Last Name" required />
+                    <span asp-validation-for="LastName" class="text-danger red"></span>
+                </div>
+
+                <div class="input-group">
+                    <input asp-for="EmailAddress" class="form-control" placeholder="Email" type="email" required />
+                    <span asp-validation-for="EmailAddress" class="text-danger red"></span>
+                </div>
+
+                <div class="input-group">
+                    <input asp-for="NationalID" class="form-control" placeholder="National ID" required />
+                    <span asp-validation-for="NationalID" class="text-danger red"></span>
+                </div>
+
+                <div class="input-group">
+                    <input asp-for="Password" id="password-field" class="form-control" placeholder="Password" type="password" required />
+                    <span asp-validation-for="Password" class="text-danger red"></span>
+                    <span class="show-password" onclick="togglePassword('password-field')">&#128065;</span>
+                </div>
+
+                <div class="input-group">
+                    <input asp-for="ConfirmPassword" id="confirm-password-field" class="form-control" placeholder="Confirm Password" type="password" required />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger red"></span>
+                    <span class="show-password" onclick="togglePassword('confirm-password-field')">&#128065;</span>
+                </div>
+
+                <div class="input-group">
+                    <input asp-for="BirthDate" class="form-control" placeholder="Birth Date" type="date" required />
+                    <span asp-validation-for="BirthDate" class="text-danger red"></span>
+                </div>
+
+                <div class="input-group">
+                    <input asp-for="Address" class="form-control" placeholder="Address" required />
+                    <span asp-validation-for="Address" class="text-danger red"></span>
+                </div>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger red">
+                        <span>@TempData["Error"]</span>
+                    </div>
+                }
+                
+                <button type="submit" class="login-btn">Sign Up</button>
+            </form>
+
+            <p class="signup-text">Already have an account? <a href="@Url.Action("Login", "Account")">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        <partial name="_ValidationScriptsPartial" />
+        function togglePassword(fieldId) {
+            var passwordField = document.getElementById(fieldId);
+            var passwordFieldType = passwordField.getAttribute("type");
+
+            if (passwordFieldType === "password") {
+                passwordField.setAttribute("type", "text");
+            } else {
+                passwordField.setAttribute("type", "password");
+            }
+        }
+    </script>
+
+</body>
+</html>
